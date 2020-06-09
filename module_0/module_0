@@ -1,22 +1,22 @@
 import random
-count = 1                             # счетчик попыток
-number = random.randint(1, 100)       # загадываем рандомное число
-min_number = 1                        # минимальное число диапазона
-max_number = 100                      # максимальное число диапазона
+count = 1                             # attempt counter
+number = random.randint(1, 100)       # make a random number
+min_number = 1                        # minimum range number
+max_number = 100                      # maximum range number
 
 print ("Загадано число от 1 до 100")
 
-predict = (min_number + max_number)/2 # медиана между максимальным и минимальным числом диапазона
+predict = (min_number + max_number)/2 # median between maximum and minimum range number
 
-while number != predict:                             # если не угадали число
-    count+=1                                         # прибавляем к счетчику попыток единицу
-    if number > predict:                             # если число больше догадки
-        min_number = predict + 1                     # поднимаем нижнюю границу диапазона до значенея догадки +1
-        predict = int((min_number + max_number)/2)   # присваиваем новой догадке значение медианы обновленного диапазона
-    elif number < predict:                           # если число меньше догадки
-        max_number = predict - 1                     # снижаем верхнюю границу диапазона на значенеи догадки -1
-        predict = int((min_number + max_number)/2)   # присваиваем новой догадке значение медианы обновленного диапазона
+while number != predict:                             # if you have not guessed the number
+    count+=1                                         # add one to the attempt counter
+    if number > predict:                             # if the number is greater than guesses
+        min_number = predict + 1                     # raise the lower limit of the range to guess value +1
+        predict = int((min_number + max_number)/2)   # assign a guess to the median value of the new range
+    elif number < predict:                           # if the number is less than guess
+        max_number = predict - 1                     # lower the upper limit of the range by guess value -1
+        predict = int((min_number + max_number)/2)   # assign a guess to the median value of the new range
     else:
-        break                                        # если угадали число, то останавливаем цикл    
+        break                                        # if you guessed the number, then stop the cycle    
 
-print('Это {}, его удалось отгадать с {} попыток'.format(int(predict), count))    # Результат работы алгоритма
+print('Это {}, его удалось отгадать с {} попыток'.format(int(predict), count))    # result of the algorithm
